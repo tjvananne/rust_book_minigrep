@@ -3,15 +3,22 @@ use std::env;
 
 fn main() {
     let args: Vec<String> = env::args().collect();
-    println!("{:?}", args);
+
+    // &args[0] is the path of the executable we're executing
+    let query = &args[1];
+    let filename = &args[2];
+
+    println!("Searching for {}", query);
+    println!("In file: {}", filename);
 }
 
 
 // ==== execution of package ===== 
 
 // cargo run
-// ["target\\debug\\rust_book_minigrep.exe"]
+// runtime error: index out of bounds error
 
-// cargo run my sweet args
-// ["target\\debug\\rust_book_minigrep.exe", "my", "sweet", "args"]
+// cargo run mystring samplefile.txt
+// Searching for mystring
+// In file: samplefile.txt
 
